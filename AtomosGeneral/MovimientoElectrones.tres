@@ -1,0 +1,21 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://d0l4y672siyee"]
+
+[resource]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(84, 0, 0)
+emission_shape_scale = Vector3(3.68, 6.3, 1)
+emission_shape = 1
+emission_sphere_radius = 3.09
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+orbit_velocity_min = -0.6999999
+orbit_velocity_max = -0.6999999
+gravity = Vector3(-10, 0, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = -2.2351742e-06
+radial_accel_min = -1.3500022
+radial_accel_max = -1.3500022
+tangential_accel_min = 0.49999776
+tangential_accel_max = 0.49999776

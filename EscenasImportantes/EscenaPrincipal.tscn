@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ntg7irrl1dkr"]
+
+[ext_resource type="PackedScene" uid="uid://cwkj36w5hkfhq" path="res://ObjetosEscena/Juego/Piso.tscn" id="1_mhrod"]
+[ext_resource type="PackedScene" uid="uid://qh7kco6y161o" path="res://Jugador/JugadorAtomo.tscn" id="2_tadl6"]
+[ext_resource type="PackedScene" uid="uid://0p8oeahlmj2q" path="res://ObjetosEscena/Juego/Mira.tscn" id="3_sv10f"]
+[ext_resource type="PackedScene" uid="uid://dekb73j4llu7f" path="res://EscenasImportantes/Generador.tscn" id="4_l7kt7"]
+
+[node name="EscenaPrincipal" type="Node2D" unique_id=680738650]
+
+[node name="Piso" parent="." unique_id=1653014233 instance=ExtResource("1_mhrod")]
+
+[node name="Jugador" parent="." unique_id=1632430310 instance=ExtResource("2_tadl6")]
+slide_on_ceiling = false
+
+[node name="Mira" parent="." unique_id=1517961166 instance=ExtResource("3_sv10f")]
+
+[node name="Generador" parent="." unique_id=1209616864 node_paths=PackedStringArray("jugador") instance=ExtResource("4_l7kt7")]
+jugador = NodePath("../Jugador")
+Cooldown = 5

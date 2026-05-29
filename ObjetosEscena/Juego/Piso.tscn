@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cwkj36w5hkfhq"]
+
+[ext_resource type="Texture2D" uid="uid://puvjcdolectl" path="res://Recursos/Piso/capa2.png" id="1_fehn0"]
+[ext_resource type="Texture2D" uid="uid://dbugk4xrlmp6h" path="res://Recursos/Piso/capas5.png" id="2_fehn0"]
+
+[node name="Piso" type="Node2D" unique_id=1628788610]
+
+[node name="Negro" type="Parallax2D" parent="." unique_id=1653014233]
+repeat_size = Vector2(54, 42)
+repeat_times = 60
+
+[node name="Sprite2D" type="Sprite2D" parent="Negro" unique_id=351714617]
+texture = ExtResource("1_fehn0")
+
+[node name="Estrellas" type="Parallax2D" parent="." unique_id=1108952875]
+repeat_size = Vector2(864, 672)
+autoscroll = Vector2(20, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Estrellas" unique_id=1348249049]
+texture = ExtResource("2_fehn0")

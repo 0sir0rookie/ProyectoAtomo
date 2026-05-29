@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dekb73j4llu7f"]
+
+[ext_resource type="Script" uid="uid://c4sxk6y3casev" path="res://Generador.gd" id="1_n1fin"]
+[ext_resource type="PackedScene" uid="uid://db03mq1umjp6k" path="res://AtomosGeneral/AtomoBase/AtomoBase.tscn" id="2_18vpl"]
+
+[node name="Generador" type="Node2D" unique_id=1209616864]
+script = ExtResource("1_n1fin")
+AtomoBase = ExtResource("2_18vpl")
