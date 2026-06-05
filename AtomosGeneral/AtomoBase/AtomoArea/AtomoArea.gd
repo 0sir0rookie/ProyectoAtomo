@@ -1,0 +1,2 @@
+extends AtomoBase
+class_name AtomoArea

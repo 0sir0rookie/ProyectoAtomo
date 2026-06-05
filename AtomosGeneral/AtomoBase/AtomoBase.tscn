@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cwlv0ntfhja4m" path="res://AtomosGeneral/AtomoBase/AtomoBase.gd" id="1_kujhh"]
 [ext_resource type="Texture2D" uid="uid://dbn1u0jx3hdld" path="res://Recursos/Atomos/Atomos.png" id="2_4rhe7"]
-[ext_resource type="Texture2D" uid="uid://cxbigedjo7fg3" path="res://Recursos/Particulas sub-atomicas basicas/Electronciito.png" id="4_ycq0l"]
-[ext_resource type="Material" uid="uid://d0l4y672siyee" path="res://AtomosGeneral/MovimientoElectrones.tres" id="5_qlxt0"]
-[ext_resource type="Script" uid="uid://o4q6xoo3qje7" path="res://Jugador/Scripts/Electrones.gd" id="6_g2yii"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dnt7"]
 atlas = ExtResource("2_4rhe7")
@@ -13,7 +10,11 @@ region = Rect2(0, 0, 130, 130)
 [sub_resource type="CircleShape2D" id="CircleShape2D_5rxcu"]
 radius = 23.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_myxwa"]
+radius = 48.09366
+
 [node name="Atomo" type="CharacterBody2D" unique_id=1648294666]
+collision_layer = 2
 script = ExtResource("1_kujhh")
 Velocidad = 100
 
@@ -25,11 +26,11 @@ texture = SubResource("AtlasTexture_5dnt7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=907759418]
 shape = SubResource("CircleShape2D_5rxcu")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1708749157]
-emitting = false
-amount = 11
-texture = ExtResource("4_ycq0l")
-lifetime = 1.4
-speed_scale = 4.0
-process_material = ExtResource("5_qlxt0")
-script = ExtResource("6_g2yii")
+[node name="AreaAtaque" type="Area2D" parent="." unique_id=392876188]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtaque" unique_id=2005815804]
+shape = SubResource("CircleShape2D_myxwa")
+
+[connection signal="body_entered" from="AreaAtaque" to="." method="DetectaJugador"]
+[connection signal="body_exited" from="AreaAtaque" to="." method="SalioJugador"]

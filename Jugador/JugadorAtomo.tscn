@@ -18,8 +18,7 @@ region = Rect2(0, 0, 130, 130)
 radius = 30.265491
 
 [node name="Jugador" type="CharacterBody2D" unique_id=1632430310]
-collision_layer = 0
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_emxpu")
 Armas = Array[PackedScene]([ExtResource("2_kfgfp")])
 Velocidad = 125
