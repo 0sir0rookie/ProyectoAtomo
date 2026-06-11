@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var AtomoBase : PackedScene
+@export var Atomos : PackedScene
 @export var jugador : CharacterBody2D
 
 @export var Cooldown = 0
@@ -15,7 +15,7 @@ func _process(delta):
 		
 		Tiempo = 0
 		
-		var AtomoIns = AtomoBase.instantiate()
+		var AtomoIns = Atomos.instantiate()
 		
 		AtomoIns.Protones = randi_range(1,118)
 		AtomoIns.Objetivo = jugador

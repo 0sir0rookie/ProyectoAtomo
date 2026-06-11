@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://4k1rdmwnq4vq"]
+
+[ext_resource type="PackedScene" uid="uid://11oqi5ahdigp" path="res://AtomosGeneral/AtomoBase/AtomoArea/AtomoArea.tscn" id="1_qkrtl"]
+[ext_resource type="Texture2D" uid="uid://eq5nbovcvqpe" path="res://Recursos/Ataques/Enemigos/Area/Fhuummm_r1_c1.png" id="2_14fg6"]
+[ext_resource type="Texture2D" uid="uid://dbn1u0jx3hdld" path="res://Recursos/Atomos/Atomos.png" id="2_bcq86"]
+[ext_resource type="Texture2D" uid="uid://c5lo6ww5fnlor" path="res://Recursos/Ataques/Enemigos/Area/Fhuummm_r1_c2.png" id="3_bcq86"]
+[ext_resource type="Texture2D" uid="uid://cq8nw50j8yirp" path="res://Recursos/Ataques/Enemigos/Area/Fhuummm_r1_c3.png" id="4_rrj4e"]
+[ext_resource type="Texture2D" uid="uid://cl66rpw4w6wjn" path="res://Recursos/Ataques/Enemigos/Area/Fhuummm_r1_c4.png" id="5_gucpk"]
+[ext_resource type="Texture2D" uid="uid://btas0jblusje2" path="res://Recursos/Ataques/Enemigos/Area/Fhuummm_r1_c5.png" id="6_26chm"]
+[ext_resource type="Texture2D" uid="uid://cmc0wbedmj0m0" path="res://Recursos/Ataques/Enemigos/Area/Fhuummm_r1_c6.png" id="7_iiqs2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrj4e"]
+atlas = ExtResource("2_bcq86")
+region = Rect2(0, 0, 130, 130)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b8oao"]
+radius = 16.492422
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8413m"]
+radius = 27.0
+
+[sub_resource type="Animation" id="Animation_qkrtl"]
+resource_name = "Atacar"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ataque:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_14fg6"), ExtResource("3_bcq86"), ExtResource("4_rrj4e"), ExtResource("5_gucpk"), ExtResource("6_26chm"), ExtResource("7_iiqs2")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ataque:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Daño/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.06666666, 0.56666666, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_b8oao"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ataque:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ataque:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Daño/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b8oao"]
+_data = {
+&"Atacar": SubResource("Animation_qkrtl"),
+&"RESET": SubResource("Animation_b8oao")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qkrtl"]
+radius = 30.0
+
+[node name="Atomo" unique_id=1648294666 node_paths=PackedStringArray("AnimacionAtaque") instance=ExtResource("1_qkrtl")]
+Velocidad = 75
+AnimacionAtaque = NodePath("AnimationPlayer")
+Protones = 1
+Neutrones = 3
+Electrones = 3
+Estabilidad = 25
+"Daño" = 5
+
+[node name="Nucleo" parent="." index="1" unique_id=182323164]
+texture = SubResource("AtlasTexture_rrj4e")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=907759418]
+shape = SubResource("CircleShape2D_b8oao")
+
+[node name="CollisionShape2D" parent="AreaAtaque" parent_id_path=PackedInt32Array(392876188) index="0" unique_id=2005815804]
+shape = SubResource("CircleShape2D_8413m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=107971889]
+libraries/ = SubResource("AnimationLibrary_b8oao")
+
+[node name="CollisionShape2D" parent="Daño" parent_id_path=PackedInt32Array(2065318615) index="0" unique_id=1028344673]
+shape = SubResource("CircleShape2D_qkrtl")

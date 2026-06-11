@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://db03mq1umjp6k"]
 
-[ext_resource type="Script" uid="uid://cwlv0ntfhja4m" path="res://AtomosGeneral/AtomoBase/AtomoBase.gd" id="1_kujhh"]
+[ext_resource type="Script" uid="uid://cwlv0ntfhja4m" path="res://AtomosGeneral/AtomoBase/AtomoBase.gd" id="1_myxwa"]
 [ext_resource type="Texture2D" uid="uid://dbn1u0jx3hdld" path="res://Recursos/Atomos/Atomos.png" id="2_4rhe7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dnt7"]
@@ -8,20 +8,20 @@ atlas = ExtResource("2_4rhe7")
 region = Rect2(0, 0, 130, 130)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5rxcu"]
-radius = 23.0
+radius = 17.029387
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_myxwa"]
-radius = 48.09366
+radius = 35.510563
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kujhh"]
+radius = 19.0
 
 [node name="Atomo" type="CharacterBody2D" unique_id=1648294666]
 collision_layer = 2
-script = ExtResource("1_kujhh")
-Velocidad = 100
+script = ExtResource("1_myxwa")
 
 [node name="Nucleo" type="Sprite2D" parent="." unique_id=182323164]
 texture = SubResource("AtlasTexture_5dnt7")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=575875093]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=907759418]
 shape = SubResource("CircleShape2D_5rxcu")
@@ -32,5 +32,13 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAtaque" unique_id=2005815804]
 shape = SubResource("CircleShape2D_myxwa")
 
+[node name="DetectarDaño" type="Area2D" parent="." unique_id=260736459]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectarDaño" unique_id=1355792729]
+shape = SubResource("CircleShape2D_kujhh")
+
 [connection signal="body_entered" from="AreaAtaque" to="." method="DetectaJugador"]
 [connection signal="body_exited" from="AreaAtaque" to="." method="SalioJugador"]
+[connection signal="body_entered" from="DetectarDaño" to="." method="DañoDetectado"]

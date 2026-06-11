@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8vw7c6lhj6jm"
-path="res://.godot/imported/NeutronPiuPiu.png-0a865ef9bdede1884c68fe102fee9f9d.ctex"
+uid="uid://cmc0wbedmj0m0"
+path="res://.godot/imported/Fhuummm_r1_c6.png-894392087f8c8a0a71127df20d9d50a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Particulas sub-atomicas basicas/NeutronPiuPiu.png"
-dest_files=["res://.godot/imported/NeutronPiuPiu.png-0a865ef9bdede1884c68fe102fee9f9d.ctex"]
+source_file="res://Recursos/Ataques/Enemigos/Area/Fhuummm_r1_c6.png"
+dest_files=["res://.godot/imported/Fhuummm_r1_c6.png-894392087f8c8a0a71127df20d9d50a9.ctex"]
 
 [params]
 

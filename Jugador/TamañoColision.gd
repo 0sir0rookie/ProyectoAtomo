@@ -2,16 +2,9 @@ extends CollisionShape2D
 
 var UltimoProton
 
-func _ready():
-	
-	if get_parent().Protones > 50:
-		CambiarRadio()
-	
-	UltimoProton = get_parent().Protones
-
 func _process(_delta):
 	
-	if UltimoProton == get_parent().Protones or get_parent().Protones < 50:
+	if UltimoProton == get_parent().Protones:
 		return
 	
 	UltimoProton = get_parent().Protones
@@ -19,5 +12,4 @@ func _process(_delta):
 	CambiarRadio()
 
 func CambiarRadio():
-	shape.radius = get_parent().Protones/2
-	
+	shape.radius = get_parent().Protones*0.75

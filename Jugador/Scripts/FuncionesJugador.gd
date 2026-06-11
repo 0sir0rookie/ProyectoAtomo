@@ -11,9 +11,12 @@ class_name Jugador
 @export var Protones = 2
 @export var Electrones = 2
 
+@export var Estabilidad = 100
+@export var Daño : float = 0
+
 func _physics_process(_delta):
 	
-	if Protones <= 0:
+	if Estabilidad <= 0:
 		queue_free() 
 	
 	Moverse()
@@ -27,6 +30,7 @@ func Disparar():
 	
 	var ArmaIns = Armas[ArmaEscojida].instantiate()
 	ArmaIns.position = position
+	ArmaIns.Daño = Daño
 	get_parent().add_child(ArmaIns)
 
 func Moverse():
@@ -43,3 +47,6 @@ func Moverse():
 		velocity.y = Velocidad
 	else:
 		velocity.y = 0
+
+func HacerseDaño(cantidad : float):
+	Estabilidad -= cantidad

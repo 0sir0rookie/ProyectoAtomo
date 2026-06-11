@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://clukp4tx4034g"]
+
+[ext_resource type="PackedScene" uid="uid://11oqi5ahdigp" path="res://AtomosGeneral/AtomoBase/AtomoArea/AtomoArea.tscn" id="1_ebija"]
+[ext_resource type="Texture2D" uid="uid://dbn1u0jx3hdld" path="res://Recursos/Atomos/Atomos.png" id="2_pxj6t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76n3m"]
+atlas = ExtResource("2_pxj6t")
+region = Rect2(260, 0, 130, 130)
+
+[node name="Atomo" unique_id=1648294666 instance=ExtResource("1_ebija")]
+
+[node name="Nucleo" parent="." index="1" unique_id=182323164]
+texture = SubResource("AtlasTexture_76n3m")

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://11oqi5ahdigp"]
+
+[ext_resource type="PackedScene" uid="uid://db03mq1umjp6k" path="res://AtomosGeneral/AtomoBase/AtomoBase.tscn" id="1_dda5i"]
+[ext_resource type="Script" uid="uid://csp8n05qo7b5f" path="res://AtomosGeneral/AtomoBase/AtomoArea/AtomoArea.gd" id="2_u1i0w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1miy4"]
+radius = 42.0
+
+[node name="Atomo" unique_id=1648294666 instance=ExtResource("1_dda5i")]
+script = ExtResource("2_u1i0w")
+
+[node name="Ataque" type="Sprite2D" parent="." index="0" unique_id=1974486742]
+
+[node name="Daño" type="Area2D" parent="." index="4" unique_id=2065318615]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Daño" index="0" unique_id=1028344673]
+shape = SubResource("CircleShape2D_1miy4")
+
+[connection signal="body_entered" from="Daño" to="." method="JugadorEnArea"]

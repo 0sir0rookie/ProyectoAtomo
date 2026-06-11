@@ -5,9 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://iqr162bpjtx8" path="res://Jugador/ObjetosJugador/Balas/DisparoNormalNeutron.tscn" id="2_kfgfp"]
 [ext_resource type="Script" uid="uid://0pjjw0varvi8" path="res://Jugador/Scripts/Nucleo.gd" id="2_ttnvm"]
 [ext_resource type="Script" uid="uid://src2e16555lc" path="res://Jugador/TamañoColision.gd" id="5_qfabw"]
-[ext_resource type="Texture2D" uid="uid://cxbigedjo7fg3" path="res://Recursos/Particulas sub-atomicas basicas/Electronciito.png" id="6_m2cqy"]
-[ext_resource type="Material" uid="uid://d0l4y672siyee" path="res://AtomosGeneral/MovimientoElectrones.tres" id="7_dxfc2"]
-[ext_resource type="Script" uid="uid://o4q6xoo3qje7" path="res://Jugador/Scripts/Electrones.gd" id="8_dxfc2"]
 [ext_resource type="Script" uid="uid://bm8tt6mpe1tmk" path="res://Jugador/Scripts/CameraJugador.gd" id="123_v71bs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kfgfp"]
@@ -22,7 +19,9 @@ collision_mask = 2
 script = ExtResource("1_emxpu")
 Armas = Array[PackedScene]([ExtResource("2_kfgfp")])
 Velocidad = 125
-Protones = 60
+Neutrones = 20
+Protones = 118
+Electrones = 11
 
 [node name="Nucleo" type="Sprite2D" parent="." unique_id=222811027]
 texture = SubResource("AtlasTexture_kfgfp")
@@ -35,12 +34,3 @@ script = ExtResource("5_qfabw")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=930014955]
 zoom = Vector2(1.5, 1.5)
 script = ExtResource("123_v71bs")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1045102382]
-emitting = false
-amount = 11
-texture = ExtResource("6_m2cqy")
-lifetime = 1.4
-speed_scale = 4.0
-process_material = ExtResource("7_dxfc2")
-script = ExtResource("8_dxfc2")

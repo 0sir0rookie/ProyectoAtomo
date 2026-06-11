@@ -2,6 +2,7 @@ extends Node2D
 
 @export var VelocidadBala = 50 
 @export var TiempoVida = 20
+@export var Daño : float = 0
 
 @export var Bala : PackedScene
 
@@ -15,6 +16,7 @@ func _ready():
 	var BalaIns = Bala.instantiate()
 	
 	BalaIns.velocity = global_position.direction_to(PosicionMouse) * VelocidadBala
+	BalaIns.Daño = Daño
 	
 	add_child(BalaIns)
 
