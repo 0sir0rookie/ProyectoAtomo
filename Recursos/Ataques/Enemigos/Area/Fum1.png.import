@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmc0wbedmj0m0"
-path="res://.godot/imported/Fhuummm_r1_c6.png-894392087f8c8a0a71127df20d9d50a9.ctex"
+uid="uid://cr3tcp1luhp8a"
+path="res://.godot/imported/Fum1.png-2a46705751df8a413ce37f3deefc5994.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Ataques/Enemigos/Area/Fhuummm_r1_c6.png"
-dest_files=["res://.godot/imported/Fhuummm_r1_c6.png-894392087f8c8a0a71127df20d9d50a9.ctex"]
+source_file="res://Recursos/Ataques/Enemigos/Area/Fum1.png"
+dest_files=["res://.godot/imported/Fum1.png-2a46705751df8a413ce37f3deefc5994.ctex"]
 
 [params]
 

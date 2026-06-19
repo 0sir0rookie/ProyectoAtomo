@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://qh7kco6y161o" path="res://Jugador/JugadorAtomo.tscn" id="2_tadl6"]
 [ext_resource type="PackedScene" uid="uid://0p8oeahlmj2q" path="res://ObjetosEscena/Juego/Mira.tscn" id="3_sv10f"]
 [ext_resource type="PackedScene" uid="uid://dekb73j4llu7f" path="res://EscenasImportantes/Generador.tscn" id="4_l7kt7"]
-[ext_resource type="PackedScene" uid="uid://4k1rdmwnq4vq" path="res://AtomosGeneral/Atomos/Area/Hidrogeno.tscn" id="5_5hom7"]
+[ext_resource type="PackedScene" uid="uid://clukp4tx4034g" path="res://AtomosGeneral/Atomos/Area/Litio.tscn" id="5_5hom7"]
 
 [node name="EscenaPrincipal" type="Node2D" unique_id=680738650]
 

@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://4k1rdmwnq4vq"]
 
 [ext_resource type="PackedScene" uid="uid://11oqi5ahdigp" path="res://AtomosGeneral/AtomoBase/AtomoArea/AtomoArea.tscn" id="1_qkrtl"]
-[ext_resource type="Texture2D" uid="uid://eq5nbovcvqpe" path="res://Recursos/Ataques/Enemigos/Area/Fhuummm_r1_c1.png" id="2_14fg6"]
 [ext_resource type="Texture2D" uid="uid://dbn1u0jx3hdld" path="res://Recursos/Atomos/Atomos.png" id="2_bcq86"]
-[ext_resource type="Texture2D" uid="uid://c5lo6ww5fnlor" path="res://Recursos/Ataques/Enemigos/Area/Fhuummm_r1_c2.png" id="3_bcq86"]
-[ext_resource type="Texture2D" uid="uid://cq8nw50j8yirp" path="res://Recursos/Ataques/Enemigos/Area/Fhuummm_r1_c3.png" id="4_rrj4e"]
-[ext_resource type="Texture2D" uid="uid://cl66rpw4w6wjn" path="res://Recursos/Ataques/Enemigos/Area/Fhuummm_r1_c4.png" id="5_gucpk"]
-[ext_resource type="Texture2D" uid="uid://btas0jblusje2" path="res://Recursos/Ataques/Enemigos/Area/Fhuummm_r1_c5.png" id="6_26chm"]
-[ext_resource type="Texture2D" uid="uid://cmc0wbedmj0m0" path="res://Recursos/Ataques/Enemigos/Area/Fhuummm_r1_c6.png" id="7_iiqs2"]
+[ext_resource type="Texture2D" uid="uid://cr3tcp1luhp8a" path="res://Recursos/Ataques/Enemigos/Area/Fum1.png" id="3_14fg6"]
+[ext_resource type="Texture2D" uid="uid://bosg1nhy3r4o2" path="res://Recursos/Ataques/Enemigos/Area/Fum2.png" id="4_bcq86"]
+[ext_resource type="Texture2D" uid="uid://birxdi3uwnhus" path="res://Recursos/Ataques/Enemigos/Area/Fum3.png" id="5_rrj4e"]
+[ext_resource type="Texture2D" uid="uid://b63mgoyp100a0" path="res://Recursos/Ataques/Enemigos/Area/Fum4.png" id="6_gucpk"]
+[ext_resource type="Texture2D" uid="uid://dwp4f1qhhymst" path="res://Recursos/Ataques/Enemigos/Area/Fum5.png" id="7_26chm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rrj4e"]
 atlas = ExtResource("2_bcq86")
@@ -15,9 +14,6 @@ region = Rect2(0, 0, 130, 130)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b8oao"]
 radius = 16.492422
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_8413m"]
-radius = 27.0
 
 [sub_resource type="Animation" id="Animation_qkrtl"]
 resource_name = "Atacar"
@@ -29,10 +25,10 @@ tracks/0/path = NodePath("Ataque:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.43333334, 0.6, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_14fg6"), ExtResource("3_bcq86"), ExtResource("4_rrj4e"), ExtResource("5_gucpk"), ExtResource("6_26chm"), ExtResource("7_iiqs2")]
+"values": [ExtResource("3_14fg6"), ExtResource("4_bcq86"), ExtResource("5_rrj4e"), ExtResource("6_gucpk"), ExtResource("7_26chm"), null]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -104,6 +100,9 @@ _data = {
 &"RESET": SubResource("Animation_b8oao")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8413m"]
+radius = 27.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_qkrtl"]
 radius = 30.0
 
@@ -122,11 +121,11 @@ texture = SubResource("AtlasTexture_rrj4e")
 [node name="CollisionShape2D" parent="." index="2" unique_id=907759418]
 shape = SubResource("CircleShape2D_b8oao")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=107971889]
+libraries/ = SubResource("AnimationLibrary_b8oao")
+
 [node name="CollisionShape2D" parent="AreaAtaque" parent_id_path=PackedInt32Array(392876188) index="0" unique_id=2005815804]
 shape = SubResource("CircleShape2D_8413m")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=107971889]
-libraries/ = SubResource("AnimationLibrary_b8oao")
 
 [node name="CollisionShape2D" parent="Daño" parent_id_path=PackedInt32Array(2065318615) index="0" unique_id=1028344673]
 shape = SubResource("CircleShape2D_qkrtl")

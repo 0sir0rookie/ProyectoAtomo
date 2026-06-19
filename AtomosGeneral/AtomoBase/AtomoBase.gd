@@ -12,12 +12,14 @@ class_name AtomoBase
 @export var Estabilidad = 100
 @export var Daño = 0
 
+@export var AtomosDejar : Array[PackedScene]
+
 var JugadorInArea : bool = false
 
 func _process(_delta):
 	
 	if Estabilidad <= 0:
-		queue_free()
+		Morirse()
 	
 	if JugadorInArea:
 		AnimacionAtaque.play("Atacar")
@@ -31,6 +33,16 @@ func HacerseDaño(cantidad : float):
 func ActualizarColision(colision : CollisionShape2D):
 	colision.set_deferred("disabled", true)
 	colision.set_deferred("disabled", false)
+
+func Morirse():
+	
+	for atomo in AtomosDejar:
+		var atomoIns = atomo.instantiate()
+		atomoIns.position = position
+		atomoIns.Objetivo = Objetivo
+		add_child(atomoIns)
+	
+	queue_free()
 
 
 func DetectaJugador(body):

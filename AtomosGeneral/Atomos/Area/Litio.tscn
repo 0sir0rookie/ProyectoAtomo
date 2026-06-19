@@ -1,13 +1,115 @@
 [gd_scene format=3 uid="uid://clukp4tx4034g"]
 
 [ext_resource type="PackedScene" uid="uid://11oqi5ahdigp" path="res://AtomosGeneral/AtomoBase/AtomoArea/AtomoArea.tscn" id="1_ebija"]
+[ext_resource type="PackedScene" uid="uid://4k1rdmwnq4vq" path="res://AtomosGeneral/Atomos/Area/Hidrogeno.tscn" id="2_76n3m"]
 [ext_resource type="Texture2D" uid="uid://dbn1u0jx3hdld" path="res://Recursos/Atomos/Atomos.png" id="2_pxj6t"]
+[ext_resource type="Texture2D" uid="uid://cr3tcp1luhp8a" path="res://Recursos/Ataques/Enemigos/Area/Fum1.png" id="4_jkn1x"]
+[ext_resource type="Texture2D" uid="uid://bosg1nhy3r4o2" path="res://Recursos/Ataques/Enemigos/Area/Fum2.png" id="5_0jj42"]
+[ext_resource type="Texture2D" uid="uid://birxdi3uwnhus" path="res://Recursos/Ataques/Enemigos/Area/Fum3.png" id="6_0b72a"]
+[ext_resource type="Texture2D" uid="uid://b63mgoyp100a0" path="res://Recursos/Ataques/Enemigos/Area/Fum4.png" id="7_hfpfk"]
+[ext_resource type="Texture2D" uid="uid://dwp4f1qhhymst" path="res://Recursos/Ataques/Enemigos/Area/Fum5.png" id="8_vvftv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_76n3m"]
 atlas = ExtResource("2_pxj6t")
 region = Rect2(260, 0, 130, 130)
 
-[node name="Atomo" unique_id=1648294666 instance=ExtResource("1_ebija")]
+[sub_resource type="Animation" id="Animation_76n3m"]
+resource_name = "Atacar1"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ataque:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.3, 0.45, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_jkn1x"), ExtResource("5_0jj42"), ExtResource("6_0b72a"), ExtResource("7_hfpfk"), ExtResource("8_vvftv"), null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ataque:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Daño/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.06666666, 0.56666666, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_b8oao"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ataque:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ataque:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Daño/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vb51p"]
+_data = {
+&"Atacar": SubResource("Animation_76n3m"),
+&"RESET": SubResource("Animation_b8oao")
+}
+
+[node name="Atomo" unique_id=1648294666 node_paths=PackedStringArray("AnimacionAtaque") instance=ExtResource("1_ebija")]
+Velocidad = 70
+AnimacionAtaque = NodePath("AnimationPlayer")
+Protones = 3
+Neutrones = 6
+Electrones = 3
+Estabilidad = 150
+"Daño" = 10
+AtomosDejar = Array[PackedScene]([ExtResource("2_76n3m"), ExtResource("2_76n3m"), ExtResource("2_76n3m")])
 
 [node name="Nucleo" parent="." index="1" unique_id=182323164]
 texture = SubResource("AtlasTexture_76n3m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=1810988614]
+libraries/ = SubResource("AnimationLibrary_vb51p")
