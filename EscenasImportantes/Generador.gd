@@ -4,9 +4,14 @@ extends Node2D
 
 @export var Cooldown = 0
 
+@export var Desactivar : bool = false
+
 var Tiempo = 0
 
 func _process(delta):
+	
+	if Desactivar:
+		return
 	
 	Tiempo += delta
 	

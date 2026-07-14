@@ -2,8 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dam6a1v7rfwee" path="res://Tienda/Tienda.gd" id="1_b1svx"]
 [ext_resource type="PackedScene" uid="uid://bi3e1fu7lmsxh" path="res://Tienda/GasesNobles/Helio.tscn" id="1_sufa4"]
+[ext_resource type="PackedScene" uid="uid://dn4jctppgapul" path="res://Tienda/Pedestal.tscn" id="2_giiby"]
+[ext_resource type="PackedScene" uid="uid://sgqcxtack2ni" path="res://Tienda/DisparoFoton.tscn" id="3_xjvy1"]
 
 [node name="Tienda" type="Node2D" unique_id=628332095]
 script = ExtResource("1_b1svx")
+Pedestal = ExtResource("2_giiby")
+Objetos = Array[PackedScene]([ExtResource("3_xjvy1")])
 
 [node name="GasNobleBase" parent="." unique_id=796471875 instance=ExtResource("1_sufa4")]
+position = Vector2(0, -76)

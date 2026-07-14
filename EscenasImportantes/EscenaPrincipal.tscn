@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://clukp4tx4034g" path="res://AtomosGeneral/Atomos/Area/Litio.tscn" id="5_5hom7"]
 [ext_resource type="PackedScene" uid="uid://dluv3qvgtmwbl" path="res://Interfaz/Interfaz.tscn" id="6_xtf6r"]
 [ext_resource type="PackedScene" uid="uid://tiprq4ephems" path="res://Jugador/ObjetosJugador/CamaraJugador.tscn" id="7_fnmdp"]
-[ext_resource type="PackedScene" uid="uid://dn4jctppgapul" path="res://Tienda/Pedestal.tscn" id="7_uui80"]
 
 [node name="EscenaPrincipal" type="Node2D" unique_id=680738650]
 
@@ -25,8 +24,5 @@ Cooldown = 1000
 top_level = true
 
 [node name="Control" parent="." unique_id=1159564581 instance=ExtResource("6_xtf6r")]
-
-[node name="Pedestal" parent="." unique_id=300586766 instance=ExtResource("7_uui80")]
-position = Vector2(113, 5)
 
 [node name="CamaraJugador" parent="." unique_id=1877676065 instance=ExtResource("7_fnmdp")]
