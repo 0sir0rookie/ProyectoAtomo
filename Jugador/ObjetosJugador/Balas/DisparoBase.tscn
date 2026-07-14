@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://iqr162bpjtx8"]
+
+[ext_resource type="Script" uid="uid://bmu787q44y7no" path="res://Jugador/Scripts/DisparoBase.gd" id="1_ettk5"]
+[ext_resource type="PackedScene" uid="uid://dol6nqe58oqeb" path="res://Jugador/ObjetosJugador/Balas/Bala.tscn" id="2_uo74u"]
+
+[node name="DisparoProyectil" type="Node2D" unique_id=1739070031]
+script = ExtResource("1_ettk5")
+cooldown = 0.5
+velocidad = 250.0
+"potenciadorDaño" = 1.0
+proyectil = ExtResource("2_uo74u")

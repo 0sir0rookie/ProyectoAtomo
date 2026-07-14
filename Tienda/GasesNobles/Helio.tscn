@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bi3e1fu7lmsxh"]
+
+[ext_resource type="PackedScene" uid="uid://c7yyp3kwxsoi6" path="res://Tienda/GasesNobles/GasNobleBase.tscn" id="1_ioyis"]
+[ext_resource type="Texture2D" uid="uid://56ck5jynjen2" path="res://Recursos/Tienda/Gases Nobles/2.HelioN.png" id="2_0ds20"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o28f2"]
+size = Vector2(16, 38)
+
+[node name="GasNobleBase" unique_id=796471875 instance=ExtResource("1_ioyis")]
+Sumatoria = 20
+Dialogos = Array[String](["Estas Heliotastico?", "HeHeHeHeHeHe..."])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1054632388]
+texture = ExtResource("2_0ds20")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=998165578]
+shape = SubResource("RectangleShape2D_o28f2")

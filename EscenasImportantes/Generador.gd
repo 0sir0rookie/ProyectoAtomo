@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var Atomos : PackedScene
-@export var jugador : CharacterBody2D
 
 @export var Cooldown = 0
 
@@ -18,23 +17,22 @@ func _process(delta):
 		var AtomoIns = Atomos.instantiate()
 		
 		AtomoIns.Protones = randi_range(1,118)
-		AtomoIns.Objetivo = jugador
 		AtomoIns.position = PosicionAleatoria()
 		
-		add_child(AtomoIns)
+		get_parent().add_child(AtomoIns)
 
 func PosicionAleatoria():
 	
 	
 	match randi_range(1,4):
 		1:
-			return AleX(jugador.position.x + 600,jugador.position.x - 600,jugador.position.y + 424)
+			return AleX(InfoJu.posicion.x + 600,InfoJu.posicion.x - 600,InfoJu.posicion.y + 424)
 		2:
-			return AleX(jugador.position.x + 600,jugador.position.x - 600,jugador.position.y - 424)
+			return AleX(InfoJu.posicion.x + 600,InfoJu.posicion.x - 600,InfoJu.posicion.y - 424)
 		3:
-			return AleX(jugador.position.y + 450,jugador.position.y - 450,jugador.position.x + 676)
+			return AleX(InfoJu.posicion.y + 450,InfoJu.posicion.y - 450,InfoJu.posicion.x + 676)
 		4:
-			return AleX(jugador.position.y + 450,jugador.position.y - 450,jugador.position.x - 676)
+			return AleX(InfoJu.posicion.y + 450,InfoJu.posicion.y - 450,InfoJu.posicion.x - 676)
 	
 
 func AleX(xpositivo,xnegativo,y):

@@ -9,4 +9,4 @@ func _process(_delta):
 	
 	PosicionMouse =  get_global_mouse_position()
 	
-	position =  get_global_mouse_position()
+	position =  PosicionMouse

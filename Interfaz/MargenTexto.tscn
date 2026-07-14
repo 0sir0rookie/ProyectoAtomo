@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://bialvbsbxlv7w"]
+
+[ext_resource type="Script" uid="uid://ywoqvs1w0cv7" path="res://Interfaz/MargenTexto.gd" id="1_8xx2o"]
+[ext_resource type="Texture2D" uid="uid://dqdvrxuy3p4bw" path="res://Recursos/Tienda/Objetos/MargenTexto.png" id="1_djskd"]
+[ext_resource type="FontFile" uid="uid://dua2f800xvb4l" path="res://Recursos/Fuentes/BridgeParapet.ttf" id="2_4i531"]
+[ext_resource type="Texture2D" uid="uid://dknk7tfpc4013" path="res://Recursos/Tienda/Objetos/Punta.png" id="2_a2hqr"]
+[ext_resource type="Script" uid="uid://dqn5cqtx5rnr7" path="res://PuntaTexto.gd" id="4_piokk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a2hqr"]
+line_spacing = 0.0
+font = ExtResource("2_4i531")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_8xx2o"]
+resource_name = "Aparecer"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_piokk"]
+resource_name = "Desaparecer"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jg68t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mubl2"]
+_data = {
+&"Aparecer": SubResource("Animation_8xx2o"),
+&"Desaparecer": SubResource("Animation_piokk"),
+&"RESET": SubResource("Animation_jg68t")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uymyi"]
+radius = 59.0
+
+[node name="PanelContainer" type="PanelContainer" unique_id=5904943 node_paths=PackedStringArray("Animaciones", "label", "Colision")]
+offset_right = 22.0
+offset_bottom = 22.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+accessibility_region = true
+script = ExtResource("1_8xx2o")
+Posicion = Vector2(50, 50)
+Animaciones = NodePath("AnimationPlayer")
+label = NodePath("MarginContainer/Label")
+Colision = NodePath("DetectorJugador/CollisionShape2D")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1978408619]
+layout_mode = 2
+texture = ExtResource("1_djskd")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="Punta" type="Sprite2D" parent="." unique_id=706954895]
+position = Vector2(6.0000014, 6.000004)
+scale = Vector2(0.44444448, 0.6)
+texture = ExtResource("2_a2hqr")
+script = ExtResource("4_piokk")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1906492504]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1470450158]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_a2hqr")
+paragraph_separator = "**"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1008499260]
+libraries/ = SubResource("AnimationLibrary_mubl2")
+
+[node name="DetectorJugador" type="Area2D" parent="." unique_id=1953745866]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorJugador" unique_id=1951511205]
+shape = SubResource("CircleShape2D_uymyi")
+
+[connection signal="body_entered" from="DetectorJugador" to="." method="JugadorCerca"]
+[connection signal="body_exited" from="DetectorJugador" to="." method="JugadorSalio"]

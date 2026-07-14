@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b7k0n12m5pa2e"]
+
+[ext_resource type="LabelSettings" uid="uid://dsmdpajhr2pcm" path="res://Recursos/Fuentes/new_label_settings.tres" id="1_tn4bb"]
+[ext_resource type="Script" uid="uid://6b3ug0tox7r" path="res://Interfaz/Tiempo.gd" id="2_h85mf"]
+
+[node name="Tiempo" type="Control" unique_id=274041324]
+layout_mode = 3
+anchor_left = 0.484
+anchor_right = 0.484
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="." unique_id=1921723576]
+layout_mode = 0
+offset_right = 21.0
+offset_bottom = 14.0
+scale = Vector2(1.75, 1.75)
+text = "0:00"
+label_settings = ExtResource("1_tn4bb")
+script = ExtResource("2_h85mf")

@@ -2,36 +2,70 @@ extends CharacterBody2D
 class_name Jugador
 
 @export var Armas : Array[PackedScene]
+@export var Objetos : Array[PackedScene]
 
 @export var ArmaEscojida = 0
 
 @export var Velocidad = 0
 
-@export var Neutrones = 2
-@export var Protones = 2
-@export var Electrones = 2
+@export var Neutrones = 0
+@export var Protones = 0
+@export var Electrones = 0
 
 @export var Estabilidad = 100
 @export var Daño : float = 0
 
+var ArmaActual = null
+
 func _physics_process(_delta):
+	
+	if ArmaActual == null:
+		CrearArma()
 	
 	if Estabilidad <= 0:
 		queue_free() 
 	
 	Moverse()
+	EnviarInformacion()
 	
 	if Input.is_action_just_pressed("Click"):
-		Disparar()
+		ArmaActual.disparar.emit(position)
+	
+	if Input.is_action_just_pressed("RatonArriba") and Armas.size() > ArmaEscojida:
+		CambiarDeArma("Arriba")
+		EliminarArma()
+	
+	if Input.is_action_just_pressed("RatonAbajo") and (Armas.size() < ArmaEscojida and ArmaEscojida > 0):
+		CambiarDeArma("Abajo")
+		EliminarArma()
 	
 	move_and_slide()
 
-func Disparar():
+func EnviarInformacion():
+	InfoJu.Electrones = Electrones
+	InfoJu.Neutrones = Neutrones
+	InfoJu.Protones = Protones
+	InfoJu.posicion = position
+
+func CrearArma():
 	
-	var ArmaIns = Armas[ArmaEscojida].instantiate()
-	ArmaIns.position = position
-	ArmaIns.Daño = Daño
-	get_parent().add_child(ArmaIns)
+	ArmaActual = Armas[ArmaEscojida].instantiate()
+	ArmaActual.potenciadorDaño = Daño
+	add_child(ArmaActual)
+
+func EliminarArma():
+	
+	ArmaActual.queue_free()
+	ArmaActual = null
+
+func CambiarDeArma(Polo : String):
+	
+	if Polo == "arriba":
+		ArmaEscojida += 1
+		
+	if Polo == "Abajo":
+		ArmaEscojida -= 1
+	
 
 func Moverse():
 	if Input.is_action_pressed("Izquierda"):

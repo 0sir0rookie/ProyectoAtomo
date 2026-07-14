@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dn4jctppgapul"]
+
+[ext_resource type="Script" uid="uid://bkmruaduaogpn" path="res://Tienda/Pedestal.gd" id="1_b53sc"]
+[ext_resource type="Texture2D" uid="uid://dv3oxaqgt8loa" path="res://Recursos/Tienda/Objetos/Pedestal.png" id="1_knfwb"]
+[ext_resource type="FontFile" uid="uid://dua2f800xvb4l" path="res://Recursos/Fuentes/BridgeParapet.ttf" id="2_l8wsl"]
+[ext_resource type="Texture2D" uid="uid://cq077yr4sdooa" path="res://Recursos/Particulas sub-atomicas basicas/Electron (1).png" id="3_b53sc"]
+[ext_resource type="PackedScene" uid="uid://bialvbsbxlv7w" path="res://Interfaz/MargenTexto.tscn" id="6_ibpl3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f2qvf"]
+line_spacing = 0.0
+font = ExtResource("2_l8wsl")
+font_size = 8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ibpl3"]
+
+[node name="Pedestal" type="Node2D" unique_id=300586766 node_paths=PackedStringArray("NodoPrecio", "labelPrecio", "Colision", "CuadroTexto")]
+script = ExtResource("1_b53sc")
+NodoPrecio = NodePath("Precio")
+labelPrecio = NodePath("Precio/Label")
+Colision = NodePath("Area2D/CollisionShape2D2")
+CuadroTexto = NodePath("PanelContainer")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=646121700]
+texture = ExtResource("1_knfwb")
+
+[node name="Precio" type="Node2D" parent="." unique_id=130633024]
+
+[node name="Label" type="Label" parent="Precio" unique_id=1719194163]
+offset_left = 2.0
+offset_top = 10.0
+offset_right = 13.0
+offset_bottom = 17.0
+label_settings = SubResource("LabelSettings_f2qvf")
+metadata/_edit_use_anchors_ = true
+
+[node name="Electron" type="Sprite2D" parent="Precio" unique_id=427273521]
+position = Vector2(-3, 13)
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("3_b53sc")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1322941434]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=347914700]
+position = Vector2(0, 9)
+shape = SubResource("CircleShape2D_ibpl3")
+
+[node name="PanelContainer" parent="." unique_id=5904943 instance=ExtResource("6_ibpl3")]
+
+[connection signal="body_entered" from="Area2D" to="." method="JugadorCompra"]

@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://dsmdpajhr2pcm"]
+
+[ext_resource type="FontFile" uid="uid://dua2f800xvb4l" path="res://Recursos/Fuentes/BridgeParapet.ttf" id="1_fkevi"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_fkevi")

@@ -1,18 +1,102 @@
 [gd_scene format=3 uid="uid://dol6nqe58oqeb"]
 
-[ext_resource type="Script" uid="uid://cm6u4opqux4j" path="res://Jugador/ObjetosJugador/Balas/Bala.gd" id="1_qfgyd"]
+[ext_resource type="Script" uid="uid://cm6u4opqux4j" path="res://Jugador/Scripts/Bala.gd" id="1_qfgyd"]
 [ext_resource type="Texture2D" uid="uid://kfl56cx2udb0" path="res://Recursos/Ataques/Jugador/Fotón.png" id="2_qfgyd"]
+[ext_resource type="Texture2D" uid="uid://ba3x6cand8b83" path="res://Recursos/Ataques/Jugador/Foton1.png" id="3_vrusk"]
+[ext_resource type="Texture2D" uid="uid://0l8p4wbpsqpa" path="res://Recursos/Ataques/Jugador/Foton2.png" id="4_fe1u4"]
+[ext_resource type="Texture2D" uid="uid://bbiw4xpmbh1v1" path="res://Recursos/Ataques/Jugador/Foton3.png" id="5_v08kk"]
+[ext_resource type="Texture2D" uid="uid://b3lkjsovm5tln" path="res://Recursos/Ataques/Jugador/Impacto1.png" id="6_7sskb"]
+[ext_resource type="Texture2D" uid="uid://v0vxsw12vwwd" path="res://Recursos/Ataques/Jugador/Impacto2.png" id="7_4vdfj"]
+[ext_resource type="Texture2D" uid="uid://d15cl2nyqeo44" path="res://Recursos/Ataques/Jugador/Impacto3.png" id="8_njagh"]
+[ext_resource type="Texture2D" uid="uid://dnnr2v4n6j78d" path="res://Recursos/Ataques/Jugador/Impacto4.png" id="9_kt32j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x6yev"]
 radius = 8.0
 
-[node name="Bala" type="CharacterBody2D" unique_id=1032636622]
+[sub_resource type="Animation" id="Animation_jx6fg"]
+resource_name = "AnimacionBase"
+length = 0.24
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.24),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_vrusk"), ExtResource("4_fe1u4"), ExtResource("5_v08kk")]
+}
+
+[sub_resource type="Animation" id="Animation_tn1qe"]
+resource_name = "Destruccion"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.125, 0.1875, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_7sskb"), ExtResource("7_4vdfj"), ExtResource("8_njagh"), ExtResource("9_kt32j"), null]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_7sskb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qfgyd")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4vdfj"]
+_data = {
+&"AnimacionBase": SubResource("Animation_jx6fg"),
+&"Destruccion": SubResource("Animation_tn1qe"),
+&"RESET": SubResource("Animation_7sskb")
+}
+
+[node name="Bala" type="CharacterBody2D" unique_id=1032636622 node_paths=PackedStringArray("Animaciones", "colision")]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_qfgyd")
+"Daño" = 10.0
+TiempoVida = 10
+Animaciones = NodePath("AnimationPlayer")
+colision = NodePath("CollisionShape2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1773576856]
 texture = ExtResource("2_qfgyd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=863797417]
 shape = SubResource("CircleShape2D_x6yev")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1660892977]
+libraries/ = SubResource("AnimationLibrary_4vdfj")
+autoplay = &"AnimacionBase"

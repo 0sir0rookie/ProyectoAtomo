@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bcnpg2tgtfg6v"]
+
+[ext_resource type="Texture2D" uid="uid://cq077yr4sdooa" path="res://Recursos/Particulas sub-atomicas basicas/Electron (1).png" id="1_y57f6"]
+[ext_resource type="LabelSettings" uid="uid://dsmdpajhr2pcm" path="res://Recursos/Fuentes/new_label_settings.tres" id="2_o15ym"]
+[ext_resource type="Script" uid="uid://cydcpw7mafqsx" path="res://Interfaz/Labels/texto_e.gd" id="3_o4y4n"]
+[ext_resource type="Script" uid="uid://c0dfswg34emap" path="res://Interfaz/Labels/texto_n.gd" id="4_xe7gp"]
+[ext_resource type="Script" uid="uid://ctfrashhv204f" path="res://Interfaz/Labels/texto_p.gd" id="5_82e1b"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y8iwg"]
+load_path = "res://.godot/imported/Neutron.png-5a1a6e2214032f55e6786f459536ad1d.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fwxup"]
+load_path = "res://.godot/imported/Proton.png-81ea576a1d30afaa25dc92ce1e3f578c.ctex"
+
+[node name="Informacion" type="Control" unique_id=529088731]
+layout_mode = 3
+anchor_left = 0.007
+anchor_top = 0.022
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vbox" type="VBoxContainer" parent="." unique_id=1390575203]
+layout_mode = 0
+offset_right = 21.0
+offset_bottom = 56.0
+
+[node name="CajaE" type="HBoxContainer" parent="Vbox" unique_id=96870289]
+layout_mode = 2
+
+[node name="Electron" type="TextureRect" parent="Vbox/CajaE" unique_id=592266268]
+layout_mode = 2
+texture = ExtResource("1_y57f6")
+stretch_mode = 2
+
+[node name="TextoE" type="Label" parent="Vbox/CajaE" unique_id=118012375]
+layout_mode = 2
+label_settings = ExtResource("2_o15ym")
+script = ExtResource("3_o4y4n")
+
+[node name="CajaN" type="HBoxContainer" parent="Vbox" unique_id=1572654346]
+layout_mode = 2
+
+[node name="Neutron" type="TextureRect" parent="Vbox/CajaN" unique_id=373202992]
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_y8iwg")
+stretch_mode = 2
+
+[node name="TextoN" type="Label" parent="Vbox/CajaN" unique_id=209269054]
+layout_mode = 2
+label_settings = ExtResource("2_o15ym")
+script = ExtResource("4_xe7gp")
+
+[node name="CajaP" type="HBoxContainer" parent="Vbox" unique_id=2056869905]
+layout_mode = 2
+
+[node name="Proton" type="TextureRect" parent="Vbox/CajaP" unique_id=1587706697]
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_fwxup")
+stretch_mode = 2
+
+[node name="TextoP" type="Label" parent="Vbox/CajaP" unique_id=1884756974]
+layout_mode = 2
+label_settings = ExtResource("2_o15ym")
+script = ExtResource("5_82e1b")

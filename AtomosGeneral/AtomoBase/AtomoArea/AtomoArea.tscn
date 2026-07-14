@@ -11,6 +11,9 @@ script = ExtResource("2_u1i0w")
 
 [node name="Ataque" type="Sprite2D" parent="." index="0" unique_id=1974486742]
 
+[node name="Electrones" parent="." index="1" unique_id=1516916831]
+scale = Vector2(0.245, 0.245)
+
 [node name="Daño" type="Area2D" parent="." index="4" unique_id=2065318615]
 collision_layer = 0
 

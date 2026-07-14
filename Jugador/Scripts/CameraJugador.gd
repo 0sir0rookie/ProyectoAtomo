@@ -1,3 +1,4 @@
 extends Camera2D
 
-pass
+func _physics_process(_delta):
+	position = InfoJu.posicion

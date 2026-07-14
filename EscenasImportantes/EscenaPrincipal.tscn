@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://0p8oeahlmj2q" path="res://ObjetosEscena/Juego/Mira.tscn" id="3_sv10f"]
 [ext_resource type="PackedScene" uid="uid://dekb73j4llu7f" path="res://EscenasImportantes/Generador.tscn" id="4_l7kt7"]
 [ext_resource type="PackedScene" uid="uid://clukp4tx4034g" path="res://AtomosGeneral/Atomos/Area/Litio.tscn" id="5_5hom7"]
+[ext_resource type="PackedScene" uid="uid://dluv3qvgtmwbl" path="res://Interfaz/Interfaz.tscn" id="6_xtf6r"]
+[ext_resource type="PackedScene" uid="uid://tiprq4ephems" path="res://Jugador/ObjetosJugador/CamaraJugador.tscn" id="7_fnmdp"]
+[ext_resource type="PackedScene" uid="uid://dn4jctppgapul" path="res://Tienda/Pedestal.tscn" id="7_uui80"]
 
 [node name="EscenaPrincipal" type="Node2D" unique_id=680738650]
 
@@ -12,11 +15,18 @@
 
 [node name="Jugador" parent="." unique_id=1632430310 instance=ExtResource("2_tadl6")]
 slide_on_ceiling = false
-"Daño" = 5.0
+Neutrones = 11
+
+[node name="Generador" parent="." unique_id=1209616864 instance=ExtResource("4_l7kt7")]
+Atomos = ExtResource("5_5hom7")
+Cooldown = 1000
 
 [node name="Mira" parent="." unique_id=1517961166 instance=ExtResource("3_sv10f")]
+top_level = true
 
-[node name="Generador" parent="." unique_id=1209616864 node_paths=PackedStringArray("jugador") instance=ExtResource("4_l7kt7")]
-Atomos = ExtResource("5_5hom7")
-jugador = NodePath("../Jugador")
-Cooldown = 1
+[node name="Control" parent="." unique_id=1159564581 instance=ExtResource("6_xtf6r")]
+
+[node name="Pedestal" parent="." unique_id=300586766 instance=ExtResource("7_uui80")]
+position = Vector2(113, 5)
+
+[node name="CamaraJugador" parent="." unique_id=1877676065 instance=ExtResource("7_fnmdp")]

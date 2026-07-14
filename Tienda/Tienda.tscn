@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b4n61x66hv1vv"]
+
+[ext_resource type="Script" uid="uid://dam6a1v7rfwee" path="res://Tienda/Tienda.gd" id="1_b1svx"]
+[ext_resource type="PackedScene" uid="uid://bi3e1fu7lmsxh" path="res://Tienda/GasesNobles/Helio.tscn" id="1_sufa4"]
+
+[node name="Tienda" type="Node2D" unique_id=628332095]
+script = ExtResource("1_b1svx")
+
+[node name="GasNobleBase" parent="." unique_id=796471875 instance=ExtResource("1_sufa4")]

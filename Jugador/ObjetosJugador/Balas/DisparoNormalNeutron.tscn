@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://iqr162bpjtx8"]
-
-[ext_resource type="Script" uid="uid://bmu787q44y7no" path="res://Jugador/Scripts/DisparoNormalElectron.gd" id="1_80fq6"]
-[ext_resource type="PackedScene" uid="uid://dol6nqe58oqeb" path="res://Jugador/ObjetosJugador/Balas/Bala.tscn" id="2_h8j2v"]
-
-[node name="DisparoNormalNeutron" type="Node2D" unique_id=1739070031]
-script = ExtResource("1_80fq6")
-VelocidadBala = 200
-Bala = ExtResource("2_h8j2v")
