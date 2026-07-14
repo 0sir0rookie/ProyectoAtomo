@@ -1,18 +1,7 @@
-extends Label
+extends Control
 
-var Minutos = 0
-var Segundos = 0
+@export var reloj : Label
 
-func _process(delta):
-	
-	Segundos += delta
-	
-	if Segundos >= 60:
-		Minutos += 1
-		Segundos = 0
-	
-	if Segundos < 10:
-		text = str(Minutos) + ":" + "0" + str(int(Segundos))
-		return
-	
-	text = str(Minutos) + ":" + str(int(Segundos))
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass

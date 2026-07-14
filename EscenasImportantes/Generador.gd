@@ -21,7 +21,6 @@ func _process(delta):
 		
 		var AtomoIns = Atomos.instantiate()
 		
-		AtomoIns.Protones = randi_range(1,118)
 		AtomoIns.position = PosicionAleatoria()
 		
 		get_parent().add_child(AtomoIns)

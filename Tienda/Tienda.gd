@@ -8,6 +8,11 @@ extends Node2D
 
 func _ready() -> void:
 	
+	CrearPedestales()
+	
+
+func CrearPedestales():
+	
 	var distanciaTotal : float = SeparacionPedestal*(CantidadPedestales - 1)
 	
 	for pedestal in range(CantidadPedestales):
@@ -16,4 +21,3 @@ func _ready() -> void:
 		PedeIns.Objeto = Objetos[0]
 		
 		add_child(PedeIns)
-		

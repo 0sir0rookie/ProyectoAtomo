@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 InfoJu="*uid://dlgpwq2fn3wir"
+InfoJuego="*uid://blbj0x76cexah"
 
 [display]
 
