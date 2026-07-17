@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ck7bypm1efiym" path="res://EscenasImportantes/Juego.gd" id="1_esfuf"]
 [ext_resource type="PackedScene" uid="uid://cwkj36w5hkfhq" path="res://ObjetosEscena/Juego/Piso.tscn" id="1_l30xg"]
 [ext_resource type="PackedScene" uid="uid://qh7kco6y161o" path="res://Jugador/JugadorAtomo.tscn" id="2_esfuf"]
+[ext_resource type="PackedScene" uid="uid://b4n61x66hv1vv" path="res://Tienda/Tienda.tscn" id="2_ouwa7"]
 [ext_resource type="PackedScene" uid="uid://dekb73j4llu7f" path="res://EscenasImportantes/Generador.tscn" id="3_ouwa7"]
 [ext_resource type="PackedScene" uid="uid://clukp4tx4034g" path="res://AtomosGeneral/Atomos/Area/Litio.tscn" id="4_cfjjw"]
 [ext_resource type="PackedScene" uid="uid://0p8oeahlmj2q" path="res://ObjetosEscena/Juego/Mira.tscn" id="5_rc8dx"]
@@ -12,6 +13,8 @@
 script = ExtResource("1_esfuf")
 
 [node name="Piso" parent="." unique_id=1628788610 instance=ExtResource("1_l30xg")]
+
+[node name="Tienda" parent="." unique_id=628332095 instance=ExtResource("2_ouwa7")]
 
 [node name="Jugador" parent="." unique_id=1632430310 instance=ExtResource("2_esfuf")]
 slide_on_ceiling = false

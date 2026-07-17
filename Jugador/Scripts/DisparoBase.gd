@@ -17,9 +17,15 @@ func _ready():
 
 func _process(delta):
 	
-	Tiempo += delta
+	SumarTiempo(delta)
 	PosicionMouse = get_global_mouse_position()
 	
+
+func SumarTiempo(delta):
+	Tiempo += delta
+
+func ReiniciarTiempo():
+	Tiempo = 0
 
 func Disparar(posicion : Vector2):
 	

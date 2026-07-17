@@ -19,14 +19,17 @@ func _process(delta):
 		
 		Tiempo = 0
 		
-		var AtomoIns = Atomos.instantiate()
-		
-		AtomoIns.position = PosicionAleatoria()
-		
-		get_parent().add_child(AtomoIns)
+		CrearAtomo()
+
+func CrearAtomo():
+	
+	var AtomoIns = Atomos.instantiate()
+	
+	AtomoIns.position = PosicionAleatoria()
+	
+	get_parent().add_child(AtomoIns)
 
 func PosicionAleatoria():
-	
 	
 	match randi_range(1,4):
 		1:

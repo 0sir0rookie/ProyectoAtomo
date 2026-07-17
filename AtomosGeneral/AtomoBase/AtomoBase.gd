@@ -15,7 +15,6 @@ class_name AtomoBase
 @export var Daño = 0
 
 @export var AtomosDejar : Array[PackedScene]
-@export var CantidadDejar = 0
 
 @export var ElectronDejar : PackedScene
 
@@ -76,11 +75,11 @@ func Morirse():
 		atomoIns.ValorTiempo.append(10)
 		get_parent().add_child(atomoIns)
 	
-	for i in range(1,CantidadDejar + 1):
+	for i in range(floor(Electrones / 3)):
 		
 		var electronIns = ElectronDejar.instantiate()
 		electronIns.position = position
-		electronIns.Angulo = (360.0/CantidadDejar) * i
+		electronIns.Angulo = (360.0/floor(Electrones / 3)) * (i + 1)
 		
 		get_parent().add_child(electronIns)
 	

@@ -9,11 +9,14 @@ var Tiempo = 0
 
 func _process(delta):
 	
-	Tiempo += delta
+	SumarTiempo(delta)
 	
 	if Tiempo > TiempoVida:
 		Morirse()
 	move_and_slide()
+
+func SumarTiempo(delta):
+	Tiempo += delta
 
 func Morirse():
 	velocity = Vector2(0,0)

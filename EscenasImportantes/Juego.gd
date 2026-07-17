@@ -2,8 +2,6 @@ extends Node2D
 
 func _process(delta):
 	
-	if 
-	
 	if InfoJuego.OleadaInProgreso:
 		SumarTiempo(delta) 
 

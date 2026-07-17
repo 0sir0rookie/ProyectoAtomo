@@ -11,17 +11,31 @@ var Tiempo = 0
 
 func _process(delta):
 	
-	Tiempo += delta
+	SumarTiempo(delta)
 	
 	if Tiempo < Duracion:
-		velocity = Vector2(1,0).rotated(rad_to_deg(Angulo)) * (Duracion / (Tiempo + 0.01))
-	
-	elif sqrt(pow(InfoJu.posicion.x - position.x, 2) + pow(InfoJu.posicion.y - position.y, 2)) < 50:
-		velocity = (global_position.direction_to(InfoJu.posicion) * velocidad)
+		EfectoSuelto()
+	elif GetDistanciaJugador() < 50:
+		SeguirJugador()
 	else:
-		velocity = Vector2(0,0)
+		PausarVelocidad()
 	
 	move_and_slide()
+
+func GetDistanciaJugador():
+	return sqrt(pow(InfoJu.posicion.x - position.x, 2) + pow(InfoJu.posicion.y - position.y, 2))
+
+func EfectoSuelto():
+	velocity = Vector2(1,0).rotated(rad_to_deg(Angulo)) * (Duracion / (Tiempo + 0.01))
+
+func SeguirJugador():
+	velocity = (global_position.direction_to(InfoJu.posicion) * velocidad)
+
+func PausarVelocidad():
+	velocity = Vector2(0,0)
+
+func SumarTiempo(delta):
+	Tiempo += delta
 
 
 func Jugador_in_area(body: Node2D):
