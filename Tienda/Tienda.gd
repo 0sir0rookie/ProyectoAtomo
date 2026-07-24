@@ -6,7 +6,12 @@ extends Node2D
 
 @export var Objetos : Array[PackedScene]
 
+@export var Aparecer : bool
+
 func _ready() -> void:
+	
+	if !Aparecer:
+		queue_free()
 	
 	CrearPedestales()
 	

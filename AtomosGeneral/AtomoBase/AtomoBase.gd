@@ -7,12 +7,12 @@ class_name AtomoBase
 @export var Fuerza : Array[Vector2]
 @export var ValorTiempo : Array[float]
 
-@export var Protones  = 0
-@export var Neutrones = 0
-@export var Electrones = Protones
+@export var Protones : float = 0
+@export var Neutrones : float = 0
+@export var Electrones : float = Protones
 
-@export var Estabilidad = 100
-@export var Daño = 0
+@export var Estabilidad : float = 100
+@export var Daño : float = 0
 
 @export var AtomosDejar : Array[PackedScene]
 

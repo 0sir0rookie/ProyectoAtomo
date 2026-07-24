@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bf6rs058sv8mi"]
+
+[ext_resource type="PackedScene" uid="uid://dluv3qvgtmwbl" path="res://Interfaz/Interfaz.tscn" id="1_emb33"]
+[ext_resource type="PackedScene" uid="uid://dl6ga4uex6vfo" path="res://EscenasImportantes/Juego.tscn" id="2_kfo58"]
+
+[node name="EscenaPrincipal" type="Node2D" unique_id=680738650]
+
+[node name="Interfaz" parent="." unique_id=1159564581 instance=ExtResource("1_emb33")]
+
+[node name="Juego" parent="." unique_id=742282300 instance=ExtResource("2_kfo58")]

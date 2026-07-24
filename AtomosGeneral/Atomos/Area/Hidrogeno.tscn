@@ -112,12 +112,10 @@ radius = 9.0
 [node name="Atomo" unique_id=1648294666 node_paths=PackedStringArray("AnimacionAtaque") instance=ExtResource("1_qkrtl")]
 Velocidad = 75
 AnimacionAtaque = NodePath("AnimationPlayer")
-Protones = 1
-Neutrones = 3
-Electrones = 3
-Estabilidad = 25
-"Daño" = 5
-CantidadDejar = 3
+Protones = 1.0
+Neutrones = 3.0
+Electrones = 3.0
+"Daño" = 5.0
 
 [node name="Nucleo" parent="." index="2" unique_id=182323164]
 texture = SubResource("AtlasTexture_rrj4e")
@@ -128,20 +126,11 @@ libraries/ = SubResource("AnimationLibrary_b8oao")
 [node name="CollisionShape2D" parent="." index="4" unique_id=907759418]
 shape = SubResource("CircleShape2D_b8oao")
 
-[node name="Daño" parent="." index="5" unique_id=2065318615]
-visible = true
-
-[node name="CollisionShape2D" parent="Daño" index="0" unique_id=1028344673]
+[node name="CollisionShape2D" parent="Daño" parent_id_path=PackedInt32Array(2065318615) index="0" unique_id=1028344673]
 shape = SubResource("CircleShape2D_qkrtl")
 
-[node name="AreaAtaque" parent="." index="6" unique_id=392876188]
-visible = true
-
-[node name="CollisionShape2D" parent="AreaAtaque" index="0" unique_id=2005815804]
+[node name="CollisionShape2D" parent="AreaAtaque" parent_id_path=PackedInt32Array(392876188) index="0" unique_id=2005815804]
 shape = SubResource("CircleShape2D_8413m")
 
-[node name="DetectarDaño" parent="." index="7" unique_id=260736459]
-visible = true
-
-[node name="CollisionShape2D" parent="DetectarDaño" index="0" unique_id=1355792729]
+[node name="CollisionShape2D" parent="DetectarDaño" parent_id_path=PackedInt32Array(260736459) index="0" unique_id=1355792729]
 shape = SubResource("CircleShape2D_14fg6")

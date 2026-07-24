@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ntg7irrl1dkr"]
 
 [ext_resource type="PackedScene" uid="uid://dl6ga4uex6vfo" path="res://EscenasImportantes/Juego.tscn" id="2_tadl6"]
+[ext_resource type="PackedScene" uid="uid://b4n61x66hv1vv" path="res://Tienda/Tienda.tscn" id="3_sv10f"]
 [ext_resource type="PackedScene" uid="uid://dluv3qvgtmwbl" path="res://Interfaz/Interfaz.tscn" id="6_xtf6r"]
 
 [node name="EscenaPrincipal" type="Node2D" unique_id=680738650]
@@ -8,3 +9,6 @@
 [node name="Interfaz" parent="." unique_id=1159564581 instance=ExtResource("6_xtf6r")]
 
 [node name="Juego" parent="." unique_id=742282300 instance=ExtResource("2_tadl6")]
+
+[node name="Tienda" parent="." unique_id=628332095 instance=ExtResource("3_sv10f")]
+position = Vector2(272, 52)

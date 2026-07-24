@@ -33,13 +33,13 @@ func PosicionAleatoria():
 	
 	match randi_range(1,4):
 		1:
-			return AleX(InfoJu.posicion.x + 600,InfoJu.posicion.x - 600,InfoJu.posicion.y + 424)
+			return AleX(InfoJu.posicion.x + 300,InfoJu.posicion.x - 300,InfoJu.posicion.y + 212)
 		2:
-			return AleX(InfoJu.posicion.x + 600,InfoJu.posicion.x - 600,InfoJu.posicion.y - 424)
+			return AleX(InfoJu.posicion.x + 300,InfoJu.posicion.x - 300,InfoJu.posicion.y - 212)
 		3:
-			return AleX(InfoJu.posicion.y + 450,InfoJu.posicion.y - 450,InfoJu.posicion.x + 676)
+			return AleX(InfoJu.posicion.y + 225,InfoJu.posicion.y - 225,InfoJu.posicion.x + 338)
 		4:
-			return AleX(InfoJu.posicion.y + 450,InfoJu.posicion.y - 450,InfoJu.posicion.x - 676)
+			return AleX(InfoJu.posicion.y + 225,InfoJu.posicion.y - 225,InfoJu.posicion.x - 338)
 	
 
 func AleX(xpositivo,xnegativo,y):

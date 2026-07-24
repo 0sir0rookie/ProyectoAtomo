@@ -113,13 +113,11 @@ radius = 19.0
 [node name="Atomo" unique_id=1648294666 node_paths=PackedStringArray("AnimacionAtaque") instance=ExtResource("1_ebija")]
 Velocidad = 70
 AnimacionAtaque = NodePath("AnimationPlayer")
-Protones = 3
-Neutrones = 6
-Electrones = 12
-Estabilidad = 150
-"Daño" = 10
+Protones = 3.0
+Neutrones = 6.0
+Electrones = 3.0
+"Daño" = 10.0
 AtomosDejar = Array[PackedScene]([ExtResource("2_76n3m"), ExtResource("2_76n3m"), ExtResource("2_76n3m")])
-CantidadDejar = 3
 
 [node name="Electrones" parent="." index="1" unique_id=1516916831]
 scale = Vector2(0.405, 0.405)
